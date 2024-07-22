@@ -66,11 +66,20 @@ public class Student {
     }
 
     public String StudentToString(){
+        String genderStr = Integer.toString(getGender());
+        if(genderStr.equals("0")){
+            genderStr = "Male";
+        } else if (genderStr.equals("1")) {
+            genderStr = "Female";
+        }
+        else {
+            genderStr ="Unknown";
+        }
         return  "\n"
                 +"Student code: " +code+"\n"
                 +"Student name: "+name+"\n"
                 +"Student age: "+age+"\n"
-                +"Student gender: "+gender+"\n"
+                +"Student gender: "+genderStr+"\n"
                 +"Student Address: "+address+"\n"
                 +"Student grade: "+grade+"\n";
     }
