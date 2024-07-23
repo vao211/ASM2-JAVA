@@ -122,6 +122,10 @@ public class Main {
             if (student.getGrade().equals(search)) {
                 foundStudent.add(student);
             }
+                        } 
+            else if (student.getGrade() > search) {
+                foundStudent.add(student);
+            }
         }
         if (foundStudent.isEmpty()) {
             System.out.println("\nNo student found!");
