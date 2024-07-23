@@ -21,8 +21,13 @@ public class Main {
             } else if (input == 2) {
                 System.out.println("Number of student: ");
                 int num = scanner.nextInt();
-                for (int i = 0; i < num; i++) {
-                    removeStudent();
+                if (num <= Student.count) {
+                    for (int i = 0; i < num; i++) {
+                        removeStudent();
+                    }
+                }
+                else{
+                    System.out.println("Please enter a smaller number!");
                 }
             } else if (input == 3) {
                 sortByGrade();
@@ -46,14 +51,14 @@ public class Main {
         System.out.print("Enter Age: ");
         int age = scanner.nextInt();
         System.out.print("Enter Gender(0 for Male/1 for Female): ");
-        int gender = scanner.nextInt();
+        int genderValue = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Enter Student's Address: ");
         String address = scanner.nextLine();
         System.out.print("Enter Student's Grade: ");
         Double grade = scanner.nextDouble();
 
-        Student student = new Student(code, name, age, gender, address, grade);
+        Student student = new Student(code, name, age, genderValue, address, grade);
         studentList.add(student);
 
     }
@@ -121,9 +126,7 @@ public class Main {
             Student student = iterator.next();
             if (student.getGrade().equals(search)) {
                 foundStudent.add(student);
-            }
-                        } 
-            else if (student.getGrade() > search) {
+            } else if (student.getGrade() > search) {
                 foundStudent.add(student);
             }
         }
@@ -137,13 +140,9 @@ public class Main {
         }
     }
 
-
     public static void printStudent() {
         for (Student s : studentList) {
             System.out.println(s.StudentToString());
         }
     }
 }
-
-
-
