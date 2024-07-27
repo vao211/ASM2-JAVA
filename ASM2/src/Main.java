@@ -102,6 +102,9 @@ public class Main {
 
         while (iterator.hasNext()) {
             Student student = iterator.next();
+            if (student.getName().equals((search))){
+                foundStudent.add(student);
+            }
             if (student.getCode().equals(search)) {
                 foundStudent.add(student);
             }
