@@ -59,6 +59,7 @@ public class Main {
         Double grade = scanner.nextDouble();
 
         Student student = new Student(code, name, age, genderValue, address, grade);
+        Student.count += 1;
         studentList.add(student);
 
     }
@@ -74,6 +75,7 @@ public class Main {
             Student student = iterator.next();
             if (student.getCode().equals(code)) {
                 iterator.remove();
+                Student.count -= 1;
                 removed = true;
                 break;
             }
